@@ -1,0 +1,16 @@
+[{
+  "id": "1",
+  "name": "Real Gross Domestic Product",
+  "tags": [
+    "GDP",
+    "FRED"
+  ],
+  "dataSource": "FRED",
+  "description": "Lorem ipsum set dolor",
+  "url": "https://fred.stlouisfed.org/",
+  "download": [{
+    "downloadFormat": "CSV",
+    "url": "https://fred.stlouisfed.org/"
+  }],
+  "dateUpdated": "10/16/2018"
+}]
