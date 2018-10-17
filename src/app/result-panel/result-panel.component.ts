@@ -9,7 +9,7 @@ import { Reports } from '../models/Reports.model';
 export class ResultPanelComponent implements OnInit, OnChanges {
 
   @Input()
-  results$: Reports[];
+  report: Reports;
 
   constructor() { }
 

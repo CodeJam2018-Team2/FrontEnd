@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SearchService {
 
-  baseUrl = 'http://dataexplorerapi.azurewebsites.net/api';
+  baseUrl = 'https://dataexplorerapi.azurewebsites.net/api';
 
 
   constructor(private http: HttpClient) {
