@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { DataSource } from '../models/DataSource.model';
+import { Reports } from '../models/Reports.model';
 
 @Component({
   selector: 'app-result-panel',
@@ -9,7 +9,7 @@ import { DataSource } from '../models/DataSource.model';
 export class ResultPanelComponent implements OnInit, OnChanges {
 
   @Input()
-  results$: DataSource[];
+  results$: Reports[];
 
   constructor() { }
 
