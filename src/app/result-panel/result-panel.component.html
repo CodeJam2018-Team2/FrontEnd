@@ -6,17 +6,26 @@
   </div>
   <div class="panel-body">
     <div *ngIf="report.reportGraphLocation != null" >
-      <div class="html5-player">
+      <div id="report-graph" class="html5-player">
           <iframe [src]='photoURL(report.reportGraphLocation)' scrolling="no" frameborder="0" allowTransparency="true"></iframe>
       </div>
     </div>
     <h4>Description</h4>
     <p>{{report.reportDescription}}</p>
-    <span class="text-bold">Source: </span><span>{{report.sourceName}}</span>
+    
   </div>
-  <div class="panel-footer">
-    <div *ngFor="let download of report.reportLocations">
-      <a href="{{download.reportURL}}">{{download.reportFormat}}</a>
+  <div class="panel-footer">  
+    <div class="row">
+      <div class="col-xs-2">
+        <span class="text-bold">Source: </span><span>{{report.sourceName}}</span>
+      </div>
+      <div class="col-xs-6"></div>
+      <div class="col-xs-4">
+        <span class="text-bold">Download:</span> 
+        <span class="util-padding-right-5" *ngFor="let download of report.reportLocations">
+          <a href="{{download.reportURL}}"> {{download.reportFormat}} </a>
+        </span>
+      </div>  
     </div>
   </div>
 </div>
