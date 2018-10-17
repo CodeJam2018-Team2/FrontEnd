@@ -5,7 +5,8 @@ import { Observable, Subject } from 'rxjs';
 import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
-import { DataSource } from '../models/DataSource.model';
+import { Reports } from '../models/Reports.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -13,10 +14,10 @@ import { DataSource } from '../models/DataSource.model';
   templateUrl: './search.component.html'
 })
 export class SearchComponent implements OnInit {
-  results$: Observable<DataSource[]>;
+  results$: Reports[];
   private searchTerms = new Subject<string>();
 
-  constructor(private searchService: SearchService) {
+  constructor(private searchService: SearchService, private sanitizer: DomSanitizer) {
   }
 
   // Push a search term into the observable stream.
@@ -25,15 +26,16 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.results$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
+    this.searchService.getAllReports().subscribe(results => this.results$ = results);
+    //   this.results$ = this.searchTerms.pipe(
+    //     // wait 300ms after each keystroke before considering the term
+    //     debounceTime(300),
 
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
+    //     // ignore new term if same as previous term
+    //     distinctUntilChanged(),
 
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.searchService.getSearchResults(term)),
-    );
+    //     // switch to new search observable each time the term changes
+    //     switchMap((term: string) => this.searchService.getSearchResults(term)),
+    //   );
+    // }
   }
-}
