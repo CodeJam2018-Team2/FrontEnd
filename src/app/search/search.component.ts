@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../services/search.service';
-import { Observable, Subject } from 'rxjs';
 import { FormControl } from '@angular/forms';
 
 import {
@@ -16,7 +15,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class SearchComponent implements OnInit {
   results$: Reports[];
-  private searchTerms = new Subject<string>();
 
   searchControl = new FormControl();
 
@@ -24,18 +22,8 @@ export class SearchComponent implements OnInit {
   }
 
 
-  search(term: string): void {
-    if (!term) {
-      this.results$ = this.results$;
-    }
-
-    const filtered = this.results$.filter((result) => {
-      return result.reportName.toLowerCase().indexOf(term.toLowerCase()) > -1;
-    });
-    this.results$ = filtered;
-  }
-
 
   ngOnInit() {
     this.searchService.getAllReports().subscribe(results => this.results$ = results);
   }
+}
