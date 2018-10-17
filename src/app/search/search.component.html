@@ -1,6 +1,13 @@
 <div class="input-group">
-	<input type="text" class="form-control" placeholder="Search for...">
-	<span class="input-group-btn">
-		<button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
-	</span>
-</div> 
+  <input #searchBox type="text" class="form-control" placeholder="Search for..." (keyup)="search(searchBox.value)">
+  <span class="input-group-btn">
+    <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+  </span>
+  <ul class="search-result">
+    <li *ngFor="let result of results$ | async">
+      <a routerLink="/">
+        {{result.name}}
+      </a>
+    </li>
+  </ul>
+</div>
