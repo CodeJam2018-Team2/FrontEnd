@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../services/search.service';
 import { Observable, Subject } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 import {
   debounceTime, distinctUntilChanged, switchMap
@@ -17,25 +18,24 @@ export class SearchComponent implements OnInit {
   results$: Reports[];
   private searchTerms = new Subject<string>();
 
+  searchControl = new FormControl();
+
   constructor(private searchService: SearchService, private sanitizer: DomSanitizer) {
   }
 
-  // Push a search term into the observable stream.
+
   search(term: string): void {
-    this.searchTerms.next(term);
+    if (!term) {
+      this.results$ = this.results$;
+    }
+
+    const filtered = this.results$.filter((result) => {
+      return result.reportName.toLowerCase().indexOf(term.toLowerCase()) > -1;
+    });
+    this.results$ = filtered;
   }
+
 
   ngOnInit() {
     this.searchService.getAllReports().subscribe(results => this.results$ = results);
-    //   this.results$ = this.searchTerms.pipe(
-    //     // wait 300ms after each keystroke before considering the term
-    //     debounceTime(300),
-
-    //     // ignore new term if same as previous term
-    //     distinctUntilChanged(),
-
-    //     // switch to new search observable each time the term changes
-    //     switchMap((term: string) => this.searchService.getSearchResults(term)),
-    //   );
-    // }
   }
