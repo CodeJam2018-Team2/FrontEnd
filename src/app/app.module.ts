@@ -9,6 +9,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ResultPanelComponent } from './result-panel/result-panel.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FilterPipe } from './filter.pipe';
+import {SubscriptionsComponent} from './subscriptions/subscriptions.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FilterPipe } from './filter.pipe';
     SearchComponent,
     NavigationComponent,
     ResultPanelComponent,
+    SubscriptionsComponent,
     FilterPipe
   ],
   imports: [
