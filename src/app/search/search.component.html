@@ -3,11 +3,6 @@
   <span class="input-group-btn">
     <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
   </span>
-  <ul class="search-result">
-    <li *ngFor="let result of results$ | async">
-      <a routerLink="/">
-        {{result.name}}
-      </a>
-    </li>
-  </ul>
 </div>
+
+<app-result-panel [results$]="results$"></app-result-panel>
