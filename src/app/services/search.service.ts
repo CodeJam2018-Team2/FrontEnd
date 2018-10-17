@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { DataSource } from '../models/DataSource.model';
 import { Observable, of } from 'rxjs';
-
+import { HttpClient } from '@angular/common/http';
+import { datasources } from '../models/DataSource.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +11,22 @@ import { Observable, of } from 'rxjs';
 export class SearchService {
 
   baseUrl = 'https://team2-backend.azurewebsites.net';
+  private dataSource = new BehaviorSubject<DataSource[]>(null);
+  data = this.dataSource.asObservable();
 
+  constructor(private http: HttpClient) {
+  }
 
-  constructor() { }
+  getSearchResults(searchString: string): Observable<DataSource[]> {
+    const results = datasources.filter(function (result) {
+      return result.name.toLowerCase().indexOf(searchString.toLowerCase()) > -1;
+    });
+    this.updatedDataSelection(results);
 
-  getTypeAheadResults(searchString: string) {
+    return this.data;
+  }
 
+  updatedDataSelection(data: DataSource[]) {
+    this.dataSource.next(data);
   }
 }
