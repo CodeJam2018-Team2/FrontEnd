@@ -1,9 +1,14 @@
-<div class="panel panel-default">
+<div class="panel panel-default" *ngFor="let result of results$ | async">
+
   <div class="panel-heading">
-    <span class="panel-title">Name</span>
+    <span class="panel-title">{{result.name}}</span>
   </div>
   <div class="panel-body">
-    Description
+    {{result.description}}
   </div>
-  <div class="panel-footer"><a>Download</a></div>
+  <div class="panel-footer">
+    <div *ngFor="let download of result.download ">
+      <a href="{{download.url}}">{{download.format}}</a>
+    </div>
+  </div>
 </div>

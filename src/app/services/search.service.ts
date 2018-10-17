@@ -18,11 +18,20 @@ export class SearchService {
   }
 
   getSearchResults(searchString: string): Observable<DataSource[]> {
-    const results = datasources.filter(function (result) {
-      return result.name.toLowerCase().indexOf(searchString.toLowerCase()) > -1;
-    });
-    this.updatedDataSelection(results);
+    if (searchString === '') {
+      this.getAllSearchResults();
+      return;
+    } else {
+      const results = datasources.filter(function (result) {
+        return result.name.toLowerCase().indexOf(searchString.toLowerCase()) > -1;
+      });
+      this.updatedDataSelection(results);
+      return this.data;
+    }
+  }
 
+  getAllSearchResults(): Observable<DataSource[]> {
+    this.updatedDataSelection(datasources);
     return this.data;
   }
 
