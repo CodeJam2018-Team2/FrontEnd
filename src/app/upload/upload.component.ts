@@ -14,8 +14,8 @@ export class UploadComponent implements OnInit {
   doMagic() {
     var magicDiv = document.getElementById("magic");
     var formDiv = document.getElementById("form");
-    magic.classList.remove("hidden");
-    form.classList.add("hidden");
+    magicDiv.classList.remove("hidden");
+    formDiv.classList.add("hidden");
   }
 }
 
