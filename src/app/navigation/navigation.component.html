@@ -7,12 +7,17 @@
                 </div>
                 <ul class="mobile-nav-right visible-xs visible-sm visible-md">
                     <li>
-                        <a class="navbar-toggle mobile-nav-logout-btn" routerLink="/subscriptions">
+                        <a id="upload-link" class="navbar-toggle" routerLink="/upload">
+                            <i class="fa fa fa-upload"></i>
+                            Upload
+                        </a>
+                    </li>
+                    <li>
+                        <a class="navbar-toggle" routerLink="/subscriptions">
                             <i class="fa fa-envelope-o"></i>
                             Subscriptions
                         </a>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -26,6 +31,12 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm hidden-md">
+                    <li>
+                        <a id="upload-link" class="navbar-toggle" routerLink="/upload">
+                            <i class="fa fa fa-upload"></i>
+                            Upload
+                        </a>
+                    </li>
                     <li>
                         <a id="subscriptions-link" class="navbar-toggle" routerLink="/subscriptions"><i class="fa fa-envelope-o"></i>
                             Subscriptions
