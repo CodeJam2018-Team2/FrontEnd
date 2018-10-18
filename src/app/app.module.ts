@@ -10,6 +10,7 @@ import { ResultPanelComponent } from './result-panel/result-panel.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FilterPipe } from './filter.pipe';
 import {SubscriptionsComponent} from './subscriptions/subscriptions.component';
+import { UploadComponent } from './upload/upload.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {SubscriptionsComponent} from './subscriptions/subscriptions.component';
     NavigationComponent,
     ResultPanelComponent,
     SubscriptionsComponent,
-    FilterPipe
+    FilterPipe,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
