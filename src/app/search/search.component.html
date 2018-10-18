@@ -4,6 +4,9 @@
     <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
   </span>
 </div>
+<div *ngIf="searchControl.value == 'fred flint'" class="util-padding-top-20 text-center">
+  <iframe src="https://giphy.com/embed/pOgT6S7ClLJYJqyaNg" width="533" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+</div>
 <div class="util-padding-top-20" *ngFor="let report of (results$ | filter:searchControl.value)">
   <app-result-panel [report]="report"></app-result-panel>
 </div>
