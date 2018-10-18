@@ -4,7 +4,6 @@
     <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
   </span>
 </div>
-<div *ngFor="let report of (results$ | filter:searchControl.value)">
+<div class="util-padding-top-20" *ngFor="let report of (results$ | filter:searchControl.value)">
   <app-result-panel [report]="report"></app-result-panel>
 </div>
-
