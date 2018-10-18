@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SearchComponent } from './search/search.component';
 import {SubscriptionsComponent} from './subscriptions/subscriptions.component';
+import {UploadComponent} from './upload/upload.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/search', pathMatch: 'full' },
