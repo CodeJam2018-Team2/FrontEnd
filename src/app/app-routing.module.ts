@@ -7,7 +7,8 @@ import {SubscriptionsComponent} from './subscriptions/subscriptions.component';
 const routes: Routes = [
   { path: '', redirectTo: '/search', pathMatch: 'full' },
   { path: 'search', component: SearchComponent },
-  { path: 'subscriptions', component: SubscriptionsComponent}
+  { path: 'subscriptions', component: SubscriptionsComponent},
+  { path: 'upload', component: UploadComponent}
 ];
 
 @NgModule({
