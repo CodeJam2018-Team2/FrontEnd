@@ -3,23 +3,15 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
-      <th>Download</th>
-      <th>Date updated</th>
+      <th>Frequency</th>
+      <th>Format</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>Consumer Price Index for All Urban Consumers: All Items </th>
-      <td>Description of the item</td>
-      <td>Download: CSV JSON</td>
-      <td>10/17/2018</td>
-    </tr>
-    <tr>
-      <th>Real Gross Domestic Product </th>
-      <td>Description of the item</td>
-      <td>Download: CSV JSON</td>
-      <td>09/16/2018</td>
-    </tr>
+      <tr *ngFor="let subscription of (subscriptions$)">
+        <td><strong>{{subscription.reportName}}</strong></td>
+        <td>{{subscription.frequency}}</td>
+        <td>{{subscription.format}}</td>
+      </tr>
   </tbody>
 </table>
